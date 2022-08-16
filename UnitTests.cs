@@ -8,11 +8,17 @@ namespace MillionerTests
     public class UnitTests
     {
         Question question;
+        string[] answers = new string[]{
+                "Answer",
+                "Answer1",
+                "Answer2",
+                "Answer3"
+            };
 
         [TestInitialize]
         public void QuestionInitializeTest()
         {
-            question = new Question();
+            question = new Question("Question", answers);
             Assert.IsNotNull(question);
         }
 
@@ -23,10 +29,20 @@ namespace MillionerTests
             Assert.AreEqual(expected, question.GetAnswer());
         }
         [TestMethod]
-        public void GetQuestion()
+        public void GetQuestionTest()
         {
             string expected = "Question";
             Assert.AreEqual(expected, question.GetQuestion());
+        }
+        [TestMethod]
+        public void GetAnswerChoiceTest()
+        {
+            bool actual = true;
+            string[] newAnswers = question.GetAnswerChoice();
+            for (int i = 0; i < 4; i++)
+                if (Array.IndexOf(newAnswers, answers[i]) == -1)
+                    actual = false;
+            Assert.IsTrue(actual);
         }
     }
 }
