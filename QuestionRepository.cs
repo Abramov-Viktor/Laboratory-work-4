@@ -3,16 +3,41 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml;
 
 namespace Millioner
 {
     public class QuestionRepository
     {
-        private List<Question> questions;
+        private List<Question> questions = new List<Question>();
+        private Question currentQuestion;
 
-        public QuestionRepository(List<Question> questions)
+        public QuestionRepository(string path)
         {
-            this.questions = questions;
+            XmlDocument xml = new XmlDocument();
+            xml.Load(path);
+            XmlElement xRoot = xml.DocumentElement;
+            if (xRoot != null)
+            {
+                string questionText = null;
+                string[] answers = new string[4];
+                for (int i = 0; i < xRoot.ChildNodes.Count; i += 2)
+                {
+                    questionText = xRoot.ChildNodes[i].InnerText;
+                    for (int j = 0; j < xRoot.ChildNodes[i + 1].ChildNodes.Count; j++)
+                    {
+                        answers[j] = xRoot.ChildNodes[i + 1].ChildNodes[j].InnerText;
+                    }
+                    questions.Add(new Question(questionText, answers));
+                }                
+            }
+
         }
+        public void SetCurrentQuestion()
+        {
+            this.currentQuestion = this.questions[0];
+        }
+
+        public string GetCurrentAnswer() => currentQuestion.GetAnswer();
     }
 }

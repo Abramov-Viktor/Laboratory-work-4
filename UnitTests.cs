@@ -52,20 +52,20 @@ namespace MillionerTests
     {
         QuestionRepository repository;
 
-        List<Question> list = new List<Question>();
-
         [TestInitialize]
         public void RepositoryInitializeTest()
         {
-            list.Add(new Question("Question", new string[]
-            {
-                "Answer",
-                "Answer1",
-                "Answer2",
-                "Answer3"
-            }));
-            repository = new QuestionRepository(list);
+            string filePath = "TestFile.xml";
+            repository = new QuestionRepository(filePath);
             Assert.IsNotNull(repository);
+        }
+        [TestMethod]
+        public void GetCurrentAnswerTest()
+        {
+            string expected = "На гуслях";
+            repository.SetCurrentQuestion();
+            string actual = repository.GetCurrentAnswer();
+            Assert.AreEqual(expected, actual);
         }
     }
 
