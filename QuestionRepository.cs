@@ -8,11 +8,11 @@ namespace Millioner
 {
     public class QuestionRepository
     {
-        private Question question;
+        private List<Question> questions;
 
-        public QuestionRepository(Question questions)
+        public QuestionRepository(List<Question> questions)
         {
-            question = questions;
+            this.questions = questions;
         }
     }
 }

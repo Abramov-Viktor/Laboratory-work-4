@@ -1,6 +1,7 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using Millioner;
+using System.Collections.Generic;
 
 namespace MillionerTests
 {
@@ -50,18 +51,20 @@ namespace MillionerTests
     public class QuestionRepositoryTests
     {
         QuestionRepository repository;
-        Question question = new Question("Question", new string[]
-        {
-            "Answer",
-                "Answer1",
-                "Answer2",
-                "Answer3"
-        });
+
+        List<Question> list = new List<Question>();
 
         [TestInitialize]
         public void RepositoryInitializeTest()
         {
-            repository = new QuestionRepository(question);
+            list.Add(new Question("Question", new string[]
+            {
+                "Answer",
+                "Answer1",
+                "Answer2",
+                "Answer3"
+            }));
+            repository = new QuestionRepository(list);
             Assert.IsNotNull(repository);
         }
     }
