@@ -52,6 +52,10 @@ namespace Millioner
 
         public Question GetCurrentQuestion() => currentQuestion;
 
+        public string GetQuestionText() => currentQuestion.GetQuestion();
+
+        public string[] GetQuestionAnswerChoice() => currentQuestion.GetAnswerChoice();
+
         public string GetCurrentAnswer() => currentQuestion.GetAnswer();
     }
 }

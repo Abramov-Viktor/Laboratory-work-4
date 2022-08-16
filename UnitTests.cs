@@ -81,6 +81,22 @@ namespace MillionerTests
             bool actual = repository.GetCurrentQuestion().isUsed;
             Assert.IsFalse(actual);
         }
+        [TestMethod]
+        public void GetQuestionTextTest()
+        {
+            string expected = "На каком инструменте, как считается, играл древнерусский певец и сказитель Боян?";
+            Assert.AreEqual(expected, repository.GetQuestionText());
+        }
+        [TestMethod]
+        public void GetQuestionAnswerChoiceTest()
+        {
+            bool actual = true;
+            string[] newAnswers = repository.GetQuestionAnswerChoice();
+            for (int i = 0; i < 4; i++)
+                if (Array.IndexOf(newAnswers, repository.GetCurrentQuestion().GetAnswerChoice()[i]) == -1)
+                    actual = false;
+            Assert.IsTrue(actual);
+        }
 
     }
 
