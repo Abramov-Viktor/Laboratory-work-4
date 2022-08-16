@@ -6,7 +6,7 @@ using System.Collections.Generic;
 namespace MillionerTests
 {
     [TestClass]
-    public class UnitTests
+    public class QuestionTests
     {
         Question question;
         string[] answers = new string[]{
@@ -88,11 +88,19 @@ namespace MillionerTests
         }
 
         [TestMethod]
-        public void IncreasePoints()
+        public void IncreasePositivePoints()
         {
             player.IncresePoints(10);
             Assert.AreEqual(10, player.Points);
         }
+
+        [TestMethod]
+        public void IncreaseNegativePoints()
+        {
+            player.IncresePoints(-10);
+            Assert.AreEqual(0, player.Points);
+        }
+        
     }
 
 }

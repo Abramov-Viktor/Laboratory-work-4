@@ -14,7 +14,8 @@ namespace Millioner
 
         public void IncresePoints(int value)
         {
-            points += value;
+            if (value > 0)
+                points += value;
         }
     }
 }
