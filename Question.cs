@@ -8,5 +8,9 @@ namespace Millioner
 {
     public class Question
     {
+                
+       public string GetAnswer() => "Answer";
+
+        public string GetQuestion() => "Question";
     }
 }

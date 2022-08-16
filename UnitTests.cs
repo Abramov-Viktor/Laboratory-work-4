@@ -7,12 +7,26 @@ namespace MillionerTests
     [TestClass]
     public class UnitTests
     {
-        
-        [TestMethod]
+        Question question;
+
+        [TestInitialize]
         public void QuestionInitializeTest()
         {
-            Question question = new Question();
+            question = new Question();
             Assert.IsNotNull(question);
+        }
+
+        [TestMethod]
+        public void GetAnswerTest()
+        {
+            string expected = "Answer";
+            Assert.AreEqual(expected, question.GetAnswer());
+        }
+        [TestMethod]
+        public void GetQuestion()
+        {
+            string expected = "Question";
+            Assert.AreEqual(expected, question.GetQuestion());
         }
     }
 }
