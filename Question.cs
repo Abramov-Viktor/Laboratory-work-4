@@ -12,6 +12,9 @@ namespace Millioner
         private string questionText;
         private string answer;
         private string[] answerChoice = new string[4];
+        private bool used = false;
+
+        public bool isUsed { set => used = value; get => used; }
 
         public Question(string question, string[] answerChoice)
         {

@@ -29,14 +29,21 @@ namespace Millioner
                         answers[j] = xRoot.ChildNodes[i + 1].ChildNodes[j].InnerText;
                     }
                     questions.Add(new Question(questionText, answers));
-                }                
+                }
             }
 
         }
         public void SetCurrentQuestion()
         {
-            this.currentQuestion = this.questions[0];
+            Random random = new Random();
+            do
+            {
+                this.currentQuestion = this.questions[random.Next(questions.Count)];
+            } while (currentQuestion.isUsed);
+            currentQuestion.isUsed = true;
         }
+
+        public Question GetCurrentQuestion() => currentQuestion;
 
         public string GetCurrentAnswer() => currentQuestion.GetAnswer();
     }

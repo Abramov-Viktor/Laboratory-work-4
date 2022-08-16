@@ -57,15 +57,21 @@ namespace MillionerTests
         {
             string filePath = "TestFile.xml";
             repository = new QuestionRepository(filePath);
+            repository.SetCurrentQuestion();
             Assert.IsNotNull(repository);
         }
         [TestMethod]
         public void GetCurrentAnswerTest()
         {
             string expected = "На гуслях";
-            repository.SetCurrentQuestion();
             string actual = repository.GetCurrentAnswer();
             Assert.AreEqual(expected, actual);
+        }
+        [TestMethod]
+        public void IsUsedQuestionTest()
+        {
+            bool actual = repository.GetCurrentQuestion().isUsed;
+            Assert.IsTrue(actual);
         }
     }
 
