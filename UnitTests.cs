@@ -41,9 +41,21 @@ namespace MillionerTests
             string[] newAnswers = question.GetAnswerChoice();
             for (int i = 0; i < 4; i++)
                 if (Array.IndexOf(newAnswers, answers[i]) == -1)
-                    actual = false;
-            
+                    actual = false;            
             Assert.IsTrue(actual);
         }
     }
+
+    [TestClass]
+
+    public class QuestionRepositoryTests
+    {
+        [TestMethod]
+        public void RepositoryInitializeTest()
+        {
+            QuestionRepository repository = new QuestionRepository();
+            Assert.IsNotNull(repository);
+        }
+    }
+
 }
