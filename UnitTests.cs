@@ -78,11 +78,20 @@ namespace MillionerTests
     [TestClass]
     public class PlayerTests
     {
-        [TestMethod]
+        Player player;
+
+        [TestInitialize]
         public void PlayerInitializeTest()
         {
-            Player player = new Player();
+            player = new Player();
             Assert.IsNotNull(player);
+        }
+
+        [TestMethod]
+        public void IncreasePoints()
+        {
+            player.IncresePoints(10);
+            Assert.AreEqual(10, player.Points);
         }
     }
 

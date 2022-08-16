@@ -8,5 +8,13 @@ namespace Millioner
 {
     public class Player
     {
+        private int points = 0;
+
+        public int Points { get { return points; } }
+
+        public void IncresePoints(int value)
+        {
+            points += value;
+        }
     }
 }
