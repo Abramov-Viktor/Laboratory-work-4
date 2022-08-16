@@ -17,5 +17,10 @@ namespace Millioner
             if (value > 0)
                 points += value;
         }
+
+        public void ResetPoints()
+        {
+            points = 0;
+        }
     }
 }

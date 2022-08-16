@@ -88,19 +88,28 @@ namespace MillionerTests
         }
 
         [TestMethod]
-        public void IncreasePositivePoints()
+        public void IncreasePositivePointsTest()
         {
             player.IncresePoints(10);
             Assert.AreEqual(10, player.Points);
         }
 
         [TestMethod]
-        public void IncreaseNegativePoints()
+        public void IncreaseNegativePointsTest()
         {
             player.IncresePoints(-10);
             Assert.AreEqual(0, player.Points);
         }
-        
+
+        [TestMethod]
+        public void ResetPointsTest()
+        {
+            player.IncresePoints(10);
+            player.IncresePoints(5);
+            player.ResetPoints();
+            Assert.AreEqual(0, player.Points);
+        }
+
     }
 
 }
