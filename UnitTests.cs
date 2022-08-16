@@ -17,8 +17,8 @@ namespace MillionerTests
 
         [TestInitialize]
         public void QuestionInitializeTest()
-        {
-            question = new Question("Question", answers);
+        {            
+            question = new Question("Question", answers );
             Assert.IsNotNull(question);
         }
 
@@ -42,6 +42,7 @@ namespace MillionerTests
             for (int i = 0; i < 4; i++)
                 if (Array.IndexOf(newAnswers, answers[i]) == -1)
                     actual = false;
+            
             Assert.IsTrue(actual);
         }
     }
