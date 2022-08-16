@@ -73,6 +73,15 @@ namespace MillionerTests
             bool actual = repository.GetCurrentQuestion().isUsed;
             Assert.IsTrue(actual);
         }
+
+        [TestMethod]
+        public void ResetUsedQuestionTest()
+        {
+            repository.ResetUsedStatus();
+            bool actual = repository.GetCurrentQuestion().isUsed;
+            Assert.IsFalse(actual);
+        }
+
     }
 
     [TestClass]

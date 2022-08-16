@@ -42,6 +42,14 @@ namespace Millioner
             currentQuestion.isUsed = true;
         }
 
+        public void ResetUsedStatus()
+        {
+            foreach (var question in this.questions)
+            {
+                question.isUsed = false;
+            }
+        }
+
         public Question GetCurrentQuestion() => currentQuestion;
 
         public string GetCurrentAnswer() => currentQuestion.GetAnswer();
