@@ -17,8 +17,8 @@ namespace MillionerTests
 
         [TestInitialize]
         public void QuestionInitializeTest()
-        {            
-            question = new Question("Question", answers );
+        {
+            question = new Question("Question", answers);
             Assert.IsNotNull(question);
         }
 
@@ -41,19 +41,27 @@ namespace MillionerTests
             string[] newAnswers = question.GetAnswerChoice();
             for (int i = 0; i < 4; i++)
                 if (Array.IndexOf(newAnswers, answers[i]) == -1)
-                    actual = false;            
+                    actual = false;
             Assert.IsTrue(actual);
         }
     }
 
     [TestClass]
-
     public class QuestionRepositoryTests
     {
-        [TestMethod]
+        QuestionRepository repository;
+        Question question = new Question("Question", new string[]
+        {
+            "Answer",
+                "Answer1",
+                "Answer2",
+                "Answer3"
+        });
+
+        [TestInitialize]
         public void RepositoryInitializeTest()
         {
-            QuestionRepository repository = new QuestionRepository();
+            repository = new QuestionRepository(question);
             Assert.IsNotNull(repository);
         }
     }

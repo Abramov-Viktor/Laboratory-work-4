@@ -9,20 +9,20 @@ namespace Millioner
     public class Question
     {
 
-        private string question;
+        private string questionText;
         private string answer;
         private string[] answerChoice = new string[4];
 
         public Question(string question, string[] answerChoice)
         {
-            this.question = question;
+            this.questionText = question;
             this.answer = answerChoice[0];
             this.answerChoice = answerChoice;
         }
 
         public string GetAnswer() => answer;
 
-        public string GetQuestion() => question;
+        public string GetQuestion() => questionText;
 
         public string[] GetAnswerChoice()
         {

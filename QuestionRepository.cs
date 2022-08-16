@@ -8,6 +8,11 @@ namespace Millioner
 {
     public class QuestionRepository
     {
+        private Question question;
 
+        public QuestionRepository(Question questions)
+        {
+            question = questions;
+        }
     }
 }
