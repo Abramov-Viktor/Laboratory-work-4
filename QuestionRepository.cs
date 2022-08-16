@@ -31,7 +31,6 @@ namespace Millioner
                     questions.Add(new Question(questionText, answers));
                 }
             }
-
         }
         public void SetCurrentQuestion()
         {

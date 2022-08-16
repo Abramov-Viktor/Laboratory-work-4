@@ -75,4 +75,15 @@ namespace MillionerTests
         }
     }
 
+    [TestClass]
+    public class PlayerTests
+    {
+        [TestMethod]
+        public void PlayerInitializeTest()
+        {
+            Player player = new Player();
+            Assert.IsNotNull(player);
+        }
+    }
+
 }
