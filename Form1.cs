@@ -95,7 +95,7 @@ namespace Millioner
             }
             else
             {
-                textBoxQuestionText.Text = "Вы проиграли";
+                textBoxQuestionText.Text = $"Вы проиграли. Правильный ответ: {repository.GetCurrentAnswer()}";
                 DisableButtons();
             }
         }
@@ -110,7 +110,7 @@ namespace Millioner
             }
             else
             {
-                textBoxQuestionText.Text = "Вы проиграли";
+                textBoxQuestionText.Text = $"Вы проиграли. Правильный ответ: {repository.GetCurrentAnswer()}";
                 DisableButtons();
             }
         }
@@ -125,7 +125,7 @@ namespace Millioner
             }
             else
             {
-                textBoxQuestionText.Text = "Вы проиграли";
+                textBoxQuestionText.Text = $"Вы проиграли. Правильный ответ: {repository.GetCurrentAnswer()}";
                 DisableButtons();
             }
         }
@@ -140,7 +140,7 @@ namespace Millioner
             }
             else
             {
-                textBoxQuestionText.Text = "Вы проиграли";
+                textBoxQuestionText.Text = $"Вы проиграли. Правильный ответ: {repository.GetCurrentAnswer()}";
                 DisableButtons();
             }
         }
