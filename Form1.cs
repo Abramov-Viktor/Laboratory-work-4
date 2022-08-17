@@ -34,16 +34,8 @@ namespace Millioner
         {
             string[] answerChoice = new string[4];
             repository.ResetUsedStatus();
-            repository.SetCurrentQuestion();
-            textBoxQuestionText.Text = repository.GetQuestionText();
-            answerChoice = repository.GetQuestionAnswerChoice();
-            buttonAnswer1.Text = answerChoice[0];
-            buttonAnswer2.Text = answerChoice[1];
-            buttonAnswer3.Text = answerChoice[2];
-            buttonAnswer4.Text = answerChoice[3];
             player = new Player();
-            player.ResetPoints();
-            label_points.Text = player.Points.ToString();
+            player.ResetPoints();       
             currentTurn = 0;
             EnableButtons();
             NextTurn();
