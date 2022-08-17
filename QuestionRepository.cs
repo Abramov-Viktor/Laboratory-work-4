@@ -18,11 +18,11 @@ namespace Millioner
             xml.Load(path);
             XmlElement xRoot = xml.DocumentElement;
             if (xRoot != null)
-            {
-                string questionText = null;
-                string[] answers = new string[4];
+            {                
                 for (int i = 0; i < xRoot.ChildNodes.Count; i += 2)
                 {
+                    string questionText = null;
+                    string[] answers = new string[4];
                     questionText = xRoot.ChildNodes[i].InnerText;
                     for (int j = 0; j < xRoot.ChildNodes[i + 1].ChildNodes.Count; j++)
                     {
